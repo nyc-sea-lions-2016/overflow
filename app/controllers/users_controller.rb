@@ -14,7 +14,12 @@ post '/users' do
 end
 
 get '/login' do
-  erb :'/users/login'
+  if logged_in?
+    @errors = ['You are already logged in.']
+    erb :'/questions/index'
+  else
+    erb :'/users/login'
+  end
 end
 
 post '/login' do

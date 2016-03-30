@@ -1,0 +1,12 @@
+<%= erb :_errors %>
+
+
+<form action="/questions" method="post">
+  <section class="form-input">
+    <input name="question[title]" type="text" placeholder="Title"></input>
+  </section>
+  <section class='form-input'>
+    <textarea rows="5" cols="50" name="question[body]" type="text" placeholder="Ask a Question"></textarea>
+  </section>
+  <input type="submit" value="Post Question"class ='button'></input>
+</form>

@@ -5,6 +5,7 @@ class CreateVotes < ActiveRecord::Migration
       t.references :user, index: true
 
       t.timestamps null: false
+       # validate uniqueness of user id
     end
   end
 end

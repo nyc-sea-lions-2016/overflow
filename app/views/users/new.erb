@@ -1,0 +1,11 @@
+<%= erb :_errors %>
+
+<form action="/users" method="post">
+  <section class="form-input">
+    <input name="user[username]" type="text" placeholder="Username"></input>
+  </section>
+  <section class='form-input'>
+    <input name="user[password]" type="password" placeholder="Password"></input>
+  </section>
+  <input type="submit" value="Sign Up"class ='button'></input>
+</form>

@@ -3,5 +3,6 @@ get '/' do
 end
 
 get '/questions' do
+  @user = User.find_by(id: session[:user_id])
   erb :'/questions/index'
 end

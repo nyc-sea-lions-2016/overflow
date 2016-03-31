@@ -1,2 +1,13 @@
+  <%= erb :_errors %>
 <h2><%=@question.title%></h2>
 <p><%=@question.body%></p>
+
+<section class='answer-container'>
+  <% @question.answers.each do |answer| %>
+    <%= erb :'/answers/_show', locals: {answer: answer} %>
+  <% end %>
+</section>
+
+<section id='form-container'>
+  <%= erb :'/answers/_new' %>
+</section>

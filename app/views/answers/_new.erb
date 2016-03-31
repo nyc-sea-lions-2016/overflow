@@ -1,0 +1,5 @@
+<form action="/answers" method="post">
+  <textarea rows="5" cols="40" name="body" placeholder="Enter an answer"></textarea>
+  <input type='hidden' name='questionid' value='<%=@question.id%>'>
+  <input class="button" type="submit" value="Submit Answer">
+</form>

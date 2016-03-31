@@ -1,10 +1,12 @@
   <%= erb :_errors %>
 <h2><%=@question.title%></h2>
 <p><%=@question.body%></p>
+<a class='question-comment' href="/comments/<%=@question.id%>/Question">Add comment</a>
 
 <section class='answer-container'>
   <% @question.answers.each do |answer| %>
     <%= erb :'/answers/_show', locals: {answer: answer} %>
+    <a class='answer-comment' href="/comments/<%=answer.id%>/Answer">Add Comment</a>
   <% end %>
 </section>
 

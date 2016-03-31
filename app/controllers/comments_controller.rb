@@ -1,9 +1,12 @@
+post '/comments' do
+  # current_user
+  # redirect "questions/show!!!!!!"
+end
+
 get '/comments/new' do
   erb :'/comments/_new'
 end
 
-post '/comments' do
-  current_user
+get '/comments/:id/:type' do
 
-  redirect "questions/show!!!!!!"
 end

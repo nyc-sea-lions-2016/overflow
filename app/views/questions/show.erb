@@ -1,15 +1,19 @@
-  <%= erb :_errors %>
-<h2><%=@question.title%></h2>
-<p><%=@question.body%></p>
-<a class='question-comment' href="/comments/<%=@question.id%>/Question">Add comment</a>
+<%= erb :_errors %>
+<section class='question-container'>
+  <h2><%=@question.title%></h2>
+  <p><%=@question.body%></p>
+  <a class='question-comment' href="/questions/<%=@question.id%>/comment">Add comment</a>
+    <%= erb :'/comments/_new_question', locals: {question: @question}%>
+</section>
 
 <section class='answer-container'>
   <% @question.answers.each do |answer| %>
-    <%= erb :'/answers/_show', locals: {answer: answer} %>
-    <a class='answer-comment' href="/comments/<%=answer.id%>/Answer">Add Comment</a>
+  <div class='answer-div'>
+    <div id='<%=answer.id%>'>
+      <%= erb :'/answers/_show', locals: {answer: answer} %>
+    </div>
+    <a class='answer-comment' href="/answers/<%=answer.id%>/comment">Add Comment</a>
+    <%= erb :'/comments/_new_answer', locals: {answer: answer} %>
+  </div>
   <% end %>
-</section>
-
-<section id='form-container'>
-  <%= erb :'/answers/_new' %>
 </section>

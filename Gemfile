@@ -16,7 +16,6 @@ gem 'shotgun'
 
 # Jon and Brett added
 gem 'pry'
-gem 'faker'
 gem 'bcrypt'
 
 group :test do

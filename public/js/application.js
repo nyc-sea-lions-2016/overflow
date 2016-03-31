@@ -1,6 +1,10 @@
 $(document).ready(function() {
 
-// SHOW COMMENT FORM
+// SHOW FORM
+  $('.question-container').on('click', '.qeestion-answer', function(event){
+    event.preventDefault();
+
+  })
   $('.question-container').on('click', '.question-comment', function(event){
     event.preventDefault();
     $(this).parent().find('form').show();

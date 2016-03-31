@@ -7,6 +7,5 @@ post '/answers/:id/comment' do
   @answer = Answer.find_by(id: params[:id])
   @comment = @answer.comments.build(body: params['body'], user_id: @user.id)
   @comment.save
-  # if request.xhr
-   erb :'/comments/_show', locals: {answer: @answer}, layout: false
+   erb :'/comments/_show', locals: {answer: @answer, comment: @comment}, layout: false
 end

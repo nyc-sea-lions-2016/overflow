@@ -1,0 +1,11 @@
+<section class="vote_display">
+  <form class="vote" action="/answers/<%=answer.id%>/votes" method="post" >
+    <input type="submit" value="+">
+  </form>
+  <section class="vote_counter">
+     <%= answer.votes.length %>
+  </section>
+  <form action="/votes_down" method="post">
+    <input type="submit" value="-">
+  </form>
+</section>

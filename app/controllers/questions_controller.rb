@@ -20,7 +20,7 @@ end
 
 post '/questions' do
   current_user
-  @question = Question.new(params[:question], user_id: @user.id)
+  @question = Question.new(params[:question].merge(user_id: @user.id))
   if @question.save
     redirect "/questions/#{@question.id}"
   else

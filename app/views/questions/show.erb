@@ -16,9 +16,10 @@
 <!-- SHOW EACH ANSWER -->
     <div class="answer-show" id='<%=answer.id%>'>
       <%= erb :'/answers/_show', locals: {answer: answer} %>
-     <div class="vote" id="<%=answer.id%>">
+    </div>
+<!-- VOTES DISPLAY -->
+    <div  id="<%=answer.id%>">
       <%= erb :"/votes/_new", locals: {answer: answer} %>
-     </div>
     </div>
 <!-- SHOW EACH COMMENT FOR ANSWER -->
     <% answer.comments.each do |comment| %>

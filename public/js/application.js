@@ -32,7 +32,7 @@ $(document).ready(function() {
   //   });
   // });
 
-  $('.answer-container').on('submit', '.answer-div', function(event){
+  $('.answer-container').on('submit', '.answer-show', function(event){
     event.preventDefault();
     var form = $(event.target)
     var answerId = $(this).children().first().attr('id')
@@ -49,24 +49,20 @@ $(document).ready(function() {
   });
 
 
-  $(".answer-show").on('submit', '.vote', function(event){
+  $('.answer-container').on('submit', '.vote', function(event){
     event.preventDefault();
-    debugger;
-    var form = $(event.target)
-    var voteId = $(this).children().first().attr('id')
+    var form = $(event.target);
+    var voteId = $(this).children().first().attr('id');
     $.ajax({
       method: 'post',
       url: form.attr('action'),
-      data: form.action
-      debugger;
-    }).done(function(response){
-     debugger;
+      dataType:"json"
+      }).done(function(response){
+          var newVoteCount = response.new_vote_count;
+        $('.vote_counter').text(newVoteCount)
     }).fail(function(response){
-      debugger;
     });
   });
-
-
 
 });
 

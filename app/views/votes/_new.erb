@@ -1,0 +1,9 @@
+<section class="vote_display">
+  <form action="/answers/<%=answer.id%>/votes" method="post" >
+    <input type="submit" value="+">
+  </form>
+  <%=@vote_counter = Answer.find_by(id: answer.id).votes.count %>
+  <form action="/votes_down" method="post">
+    <input type="submit" value="-">
+  </form>
+</section>

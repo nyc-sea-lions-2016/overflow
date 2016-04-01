@@ -14,8 +14,11 @@
   <% @question.answers.each do |answer| %>
   <div class='answer-div'>
 <!-- SHOW EACH ANSWER -->
-    <div id='<%=answer.id%>'>
+    <div class="answer-show" id='<%=answer.id%>'>
       <%= erb :'/answers/_show', locals: {answer: answer} %>
+     <div class="vote" id="<%=answer.id%>">
+      <%= erb :"/votes/_new", locals: {answer: answer} %>
+     </div>
     </div>
 <!-- SHOW EACH COMMENT FOR ANSWER -->
     <% answer.comments.each do |comment| %>

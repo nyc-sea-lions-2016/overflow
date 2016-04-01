@@ -49,6 +49,25 @@ $(document).ready(function() {
   });
 
 
+  $(".answer-show").on('submit', '.vote', function(event){
+    event.preventDefault();
+    debugger;
+    var form = $(event.target)
+    var voteId = $(this).children().first().attr('id')
+    $.ajax({
+      method: 'post',
+      url: form.attr('action'),
+      data: form.action
+      debugger;
+    }).done(function(response){
+     debugger;
+    }).fail(function(response){
+      debugger;
+    });
+  });
+
+
+
 });
 
 

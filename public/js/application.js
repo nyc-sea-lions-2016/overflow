@@ -32,19 +32,37 @@ $(document).ready(function() {
     });
   });
 
-  $('.answer-container').on('submit', '.answer-div', function(event){
+  $('.answer-container').on('submit', '.answer-comment-form', function(event){
     event.preventDefault();
     var form = $(event.target)
-    var answerId = $(this).children().first().attr('id')
+    var answersComments = $(this).parent().find('.answers-comments')
+    console.log(answersComments);
+    debugger;
     $.ajax({
       method: 'post',
       url: form.attr('action'),
       data: form.serialize()
     }).done(function(response){
-      $('div#' + answerId).append(response)
+      debugger;
+      answersComments.append(response)
       form.hide()
     }).fail(function(response){
       console.log('Body is blank')
+    });
+  });
+
+  $('.answer-container').on('submit', '.vote', function(event){
+    event.preventDefault();
+    var form = $(event.target);
+    var voteId = $(this).children().first().attr('id');
+    $.ajax({
+      method: 'post',
+      url: form.attr('action'),
+      dataType:"json"
+      }).done(function(response){
+          var newVoteCount = response.new_vote_count;
+        $('.vote_counter').text(newVoteCount)
+    }).fail(function(response){
     });
   });
 

@@ -18,13 +18,21 @@
   <% @question.answers.each do |answer| %>
   <div class='answer-div'>
 <!-- SHOW EACH ANSWER -->
-    <div id='<%=answer.id%>'>
+    <div class='answer-show' id='<%=answer.id%>'>
       <%= erb :'/answers/_show', locals: {answer: answer} %>
     </div>
+<!-- VOTES DISPLAY -->
+  <div>
+    <%= erb :'/votes/_new', locals: {answer: answer} %>
+  </div>
 <!-- SHOW EACH COMMENT FOR ANSWER -->
+  <section class='answers-comments'>
     <% answer.comments.each do |comment| %>
+    <div id='comment-<%=answer.id%>-for-answer'>
       <%= erb :'/comments/_show', locals: {comment: comment} %>
+    </div>
     <% end %>
+  </section>
 <!-- ADD COMMENT TO ANSWER -->
     <a class='answer-comment' href="/answers/<%=answer.id%>/comment">Add Comment</a>
     <%= erb :'/comments/_new_answer', locals: {answer: answer} %>

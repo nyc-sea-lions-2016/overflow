@@ -4,4 +4,10 @@ class Vote < ActiveRecord::Base
 
   validates :user, presence: true
   validates_uniqueness_of :user, :scope => [:votable_id, :votable_type]
+
+  def upvote
+  end
+
+  def downvote
+  end
 end

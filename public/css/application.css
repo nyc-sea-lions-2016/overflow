@@ -25,3 +25,22 @@ body {
 .vote_counter, .vote_button {
   display:inline-block;
 }
+/*STATS STYLIING*/
+.votes_stat, .answers_stat, .visits_stat, .question-stat {
+  display:inline-block;
+  margin: 0.5em;
+  text-align: center;
+}
+
+.votes_stat, .answers_stat {
+  border-right: 1px solid black;
+  padding-right: 1em;
+}
+/*QUESTIONS INDEX STYLINGS*/
+.question-container {
+}
+
+.question-container h2 {
+  display:inline-block;
+}
+

@@ -6,7 +6,7 @@
 /*HEADER STYLINGS*/
 header {
   background-image:url(../imgs/wood.jpg);
-  padding-top: 3%;
+  padding-top: 1%;
   border-bottom-right-radius:15px;
   border-bottom-left-radius:15px;
 }
@@ -15,9 +15,20 @@ nav a #greeting{
   color:black;
 }
 
+/*LOGO STYLINGS*/
+img {
+  width: 90%;
+}
+
+.logo {
+  width:7%;
+  margin-left:2em;
+}
+
 /*MAIN STYLINGS*/
 body {
-  background-image: url(../imgs/brickwall.png)
+  background-image: url(../imgs/brickwall.png);
+  padding:0 1em 0 1em;
 }
 
 /*VOTE STYLINGS*/
@@ -42,5 +53,6 @@ body {
 
 .question-container h2 {
   display:inline-block;
+  font-size: 1.5em;
 }
 

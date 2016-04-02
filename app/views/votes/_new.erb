@@ -1,11 +1,17 @@
 <section class="vote_display">
+
   <form class="vote" action="/answers/<%=answer.id%>/votes" method="post" >
-    <input type="submit" value="+">
+    <button type="submit" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-thumbs-up"></span>
+    </button>
   </form>
   <section class="vote_counter">
      <%= answer.votes.length %>
   </section>
   <form action="" method="post">
-    <input type="submit" value="-">
+    <button type="submit" class="btn btn-default btn-sm">
+      <span class="glyphicon glyphicon-thumbs-down"></span>
+    </button>
   </form>
 </section>
+

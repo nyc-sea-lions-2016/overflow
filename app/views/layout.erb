@@ -7,27 +7,55 @@
     See: http://necolas.github.com/normalize.css/
   -->
   <link rel="stylesheet" href="/css/normalize.css">
+
   <!--
     application.css is where you put your styles
   -->
-  <link rel='stylesheet'
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
   <title>Stack Psuedoflow</title>
 </head>
 <body>
   <header>
-    <nav>
-      <a href='/questions'>Home</a>
-      <a href="/users/new">Register</a>
-      <a href="/login">Login</a>
-      <a href="/logout">Logout</a>
-      <a href="/questions/new">Post a Question</a>
-    </nav>
+    <nav >
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">SmackOverflow</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li>
+            <a href='/questions'><span class="glyphicon glyphicon-home"></span>Home</a>
+          </li>
+          <li>
+            <a href="/questions/new"><span class="glyphicon glyphicon-question-sign"></span>Post a Question</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <%if logged_in?%>
+            <a class="navbar-brand" href="#">Hi <%=@user.username%></a>
+            <li>
+              <a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            </li>
+          <%else%>
+            <li>
+              <a href="/users/new"><span class="glyphicon glyphicon-user"></span>Register</a>
+            </li>
+            <li>
+              <a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            </li>
+          <%end%>
+         </ul>
+        </div>
+      </nav>
   </header>
-  <%= yield %>
+  <main>
+    <%= yield %>
+  </main>
 </body>
 </html>

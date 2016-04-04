@@ -7,7 +7,7 @@
     <%= erb :'/comments/_show', locals: {comment: comment} %>
   <% end %>
 <!-- ADD COMMENT TO QUESTION -->
-  <a class='question-comment' href="/questions/<%=@question.id%>/comment"><span class="glyphicon glyphicon-edit"></span>Add comment</a>
+  <a class='question-comment' href="/questions/<%=@question.id%>/comment">Add comment</a>
     <%= erb :'/comments/_new_question', locals: {question: @question}%>
 <!-- ADD ANSWER TO QUESTION -->
     <a class='question-answer' href='/answers/_new'>Add answer</a>
@@ -28,9 +28,9 @@
 <!-- SHOW EACH COMMENT FOR ANSWER -->
   <section class='answers-comments'>
     <% answer.comments.each do |comment| %>
-    <div id='comment-<%=answer.id%>-for-answer'>
-      <%= erb :'/comments/_show', locals: {comment: comment} %>
-    </div>
+      <div id='comment-<%=answer.id%>-for-answer'>
+        <%= erb :'/comments/_show', locals: {comment: comment} %>
+      </div>
     <% end %>
   </section>
 <!-- ADD COMMENT TO ANSWER -->

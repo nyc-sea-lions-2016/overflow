@@ -1,10 +1,11 @@
 $(document).ready(function() {
 
 // SHOW FORM
-  $('.question-container').on('click', '.question-answer', function(event){
+  $('main').on('click', '.question-answer', function(event){
     event.preventDefault();
-    $(this).next().show()
-  })
+      $(this).next().show();
+
+  });
 
   $('.question-container').on('click', '.question-comment', function(event){
     event.preventDefault();
@@ -37,13 +38,11 @@ $(document).ready(function() {
     var form = $(event.target)
     var answersComments = $(this).parent().find('.answers-comments')
     console.log(answersComments);
-    debugger;
     $.ajax({
       method: 'post',
       url: form.attr('action'),
       data: form.serialize()
     }).done(function(response){
-      debugger;
       answersComments.append(response)
       form.hide()
     }).fail(function(response){
@@ -54,18 +53,36 @@ $(document).ready(function() {
   $('.answer-container').on('submit', '.vote', function(event){
     event.preventDefault();
     var form = $(event.target);
-    var voteId = $(this).children().first().attr('id');
     $.ajax({
       method: 'post',
       url: form.attr('action'),
       dataType:"json"
       }).done(function(response){
+        // debugger;
           var newVoteCount = response.new_vote_count;
-        $('.vote_counter').text(newVoteCount)
+        $(form).next().text(newVoteCount)
     }).fail(function(response){
+
     });
   });
 
+  $('.answer-container').on('submit', '.vote_delete', function(event){
+    event.preventDefault();
+    var form = $(event.target);
+    // var voteId = $(this).children().first().attr('id');
+    // debugger;
+    $.ajax({
+      method: 'delete',
+      url: form.attr('action'),
+      dataType:"json"
+      }).done(function(response){
+
+        var newVoteCount = response.new_vote_count;
+        $(form).prev().text(newVoteCount);
+      }).fail(function(response){
+
+    });
+  });
 
 });
 

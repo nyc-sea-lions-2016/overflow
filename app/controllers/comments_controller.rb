@@ -1,3 +1,4 @@
+
 post '/questions/:id/comment' do
   current_user
   @question = Question.find_by(id: params[:id])
@@ -13,3 +14,4 @@ post '/answers/:id/comment' do
   @comment.save
    erb :'/comments/_show', locals: {answer: @answer, comment: @comment}, layout: false
 end
+

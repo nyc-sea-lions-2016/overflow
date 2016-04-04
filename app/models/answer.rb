@@ -7,4 +7,8 @@ class Answer < ActiveRecord::Base
   validates :body, presence: true
   validates :user, presence: true
   validates :question, presence: true
+
+   def vote_count
+  	self.votes.map { |vote| vote.value }.reduce(:+) || 0
+  end
 end

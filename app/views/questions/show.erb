@@ -7,10 +7,10 @@
     <%= erb :'/comments/_show', locals: {comment: comment} %>
   <% end %>
 <!-- ADD COMMENT TO QUESTION -->
-  <a class='question-comment' href="/questions/<%=@question.id%>/comment"><span class="glyphicon glyphicon-edit"></span>Add comment</a>
+  <a class='question-comment' href="/questions/<%=@question.id%>/comment"><span class="glyphicon glyphicon-comment"></span>Add comment</a>
     <%= erb :'/comments/_new_question', locals: {question: @question}%>
 <!-- ADD ANSWER TO QUESTION -->
-    <a class='question-answer' href='/answers/_new'>Add answer</a>
+    <a class='question-answer' href='/answers/_new'><span class="glyphicon glyphicon-edit"></span>Add answer</a>
     <%= erb :'/answers/_new', locals: {question: @question}%>
 </section>
 

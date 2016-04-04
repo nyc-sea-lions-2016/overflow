@@ -1,9 +1,12 @@
 <%= erb :_errors %>
 
 
-<h1>Questions/index.</h1>
+<h1>Smacks</h1>
 
 
 <% @questions.each do |question| %>
-  <h2><a href='/questions/<%=question.id%>'><%=question.title%></a></h2>
+  <section class="question-container">
+    <h2><a href='/questions/<%=question.id%>'><%=question.title%></a></h2>
+    <%= erb :'/questions/_question_stats', locals: {question: question} %>
+  </section>
 <% end %>

@@ -31,5 +31,7 @@ end
 
 get '/questions/:id' do
   @question = Question.find_by(id: params[:id])
+  @visit = Visit.create(question_id: @question.id)
+
   erb :'/questions/show'
 end

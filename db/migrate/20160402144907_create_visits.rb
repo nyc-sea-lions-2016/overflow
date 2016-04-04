@@ -3,7 +3,7 @@ class CreateVisits < ActiveRecord::Migration
     create_table :visits do |t|
       t.references :question, index: true
 
-      t. timestamps
+      t. timestamps null: false
     end
   end
 end

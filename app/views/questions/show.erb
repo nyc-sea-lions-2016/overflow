@@ -3,7 +3,7 @@
   <h2><%=@question.title%></h2>
   <p class='question-body'><%=@question.body%></p>
 <!-- DISPLAY COMMENTS ON QUESTION -->
-  <% @question.comments.each do |comment|%>
+  <% @question.comments.reverse.each do |comment|%>
     <%= erb :'/comments/_show', locals: {comment: comment} %>
   <% end %>
 <!-- ADD COMMENT TO QUESTION -->
@@ -27,7 +27,7 @@
   </div>
 <!-- SHOW EACH COMMENT FOR ANSWER -->
   <section class='answers-comments'>
-    <% answer.comments.each do |comment| %>
+    <% answer.comments.reverse.each do |comment| %>
     <div id='comment-<%=answer.id%>-for-answer'>
       <%= erb :'/comments/_show', locals: {comment: comment} %>
     </div>

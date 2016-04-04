@@ -37,13 +37,11 @@ $(document).ready(function() {
     var form = $(event.target)
     var answersComments = $(this).parent().find('.answers-comments')
     console.log(answersComments);
-    debugger;
     $.ajax({
       method: 'post',
       url: form.attr('action'),
       data: form.serialize()
     }).done(function(response){
-      debugger;
       answersComments.append(response)
       form.hide()
     }).fail(function(response){

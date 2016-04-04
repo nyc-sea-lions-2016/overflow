@@ -4,13 +4,22 @@ post '/answers' do
   redirect "/questions/#{params[:questionid]}"
 end
 
-post '/answers/:id/votes' do
+post '/answers/:id/upvotes' do
   current_user
   @answer = Answer.find_by(id: params[:id])
-  @vote = @answer.votes.build(user_id: @user.id)
-  if @vote.save
-    {new_vote_count: @answer.votes.count}.to_json
-  else
-    @errors = ["You've already voted on this"]
-  end
+  @vote = Vote.find_by(user_id: @user.id, votable_id: @answer.id, votable_type: 'Answer') || @answer.votes.build(user_id: @user.id)
+  @vote.upvote
+  @vote.save
+  redirect "questions/#{@answer.question_id}"
 end
+
+post '/answers/:id/downvotes' do
+  current_user
+  @answer = Answer.find_by(id: params[:id])
+  @vote = Vote.find_by(user_id: @user.id, votable_id: @answer.id, votable_type: 'Answer') || @answer.votes.build(user_id: @user.id)
+  @vote.downvote
+  @vote.save
+  redirect "questions/#{@answer.question_id}"
+end
+
+
